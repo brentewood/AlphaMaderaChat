@@ -1,0 +1,10 @@
+ai_provider: openai  # or 'openai'
+claude:
+  api_key: ${ANTHROPIC_API_KEY}
+  model: claude-3-5-sonnet-20241022
+  max_tokens: 8192
+
+openai:
+  api_key: ${OPENAI_API_KEY}
+  model: gpt-4-turbo-preview
+  max_tokens: 4096
