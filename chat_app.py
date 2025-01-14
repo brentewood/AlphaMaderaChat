@@ -20,20 +20,26 @@ class AIChat:
 
     def load_config(self):
         load_dotenv()
+        print("\nLoading configuration...")
         with open('config.yaml', 'r') as f:
             self.config = yaml.safe_load(f)
+            print(f"Loaded config: {self.config}")
 
         # Replace environment variables in config
         provider_config = self.config[self.config['ai_provider']]
+        print(f"Provider config before env vars: {provider_config}")
         provider_config['api_key'] = os.getenv(provider_config['api_key'].replace('${', '').replace('}', ''))
+        print(f"Provider config after env vars: {provider_config}")
 
     def initialize_driver(self):
         provider = self.config['ai_provider']
+        print(f"\nInitializing {provider} driver...")
         if provider not in self.DRIVER_MAPPING:
             raise ValueError(f"Unsupported AI provider: {provider}")
 
         driver_class = self.DRIVER_MAPPING[provider]
         self.driver = driver_class()
+        print(f"Initializing driver with config: {self.config[provider]}")
         self.driver.initialize(self.config[provider])
 
     def load_initial_prompt(self):
@@ -111,8 +117,9 @@ class AIChat:
             self.messages.append({"role": "user", "content": user_input})
 
             try:
+                print(f"\nAssistant:")
                 assistant_response = self.driver.generate_response(self.messages)
-                print(f"\nAssistant: {assistant_response}")
+                #print(f"\nAssistant: {assistant_response}")
 
                 # Add assistant message to history
                 assistant_message = self.format_message("assistant", assistant_response)
