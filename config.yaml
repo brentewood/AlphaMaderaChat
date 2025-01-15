@@ -2,10 +2,10 @@ ai_provider: claude
 
 openai:
   api_key: ${OPENAI_API_KEY}
-  model: gpt-4o
+  model: chatgpt-4o-latest
   max_tokens: 4096
 
 claude:
   api_key: ${ANTHROPIC_API_KEY}
-  model: claude-3-sonnet-20240229
-  max_tokens: 4096
+  model: claude-3-5-sonnet-20241022
+  max_tokens: 8192

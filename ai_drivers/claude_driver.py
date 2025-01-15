@@ -15,10 +15,10 @@ class ClaudeDriver(AIDriver):
             # Convert and clean messages format
             formatted_messages = []
             for msg in messages:
-                if msg.get('content') and msg['content'].strip():  # Only include messages with non-empty content
+                if msg.get('content'):  # Only include messages with content
                     formatted_messages.append({
                         "role": "assistant" if msg['role'] == 'assistant' else "user",
-                        "content": msg['content'].strip()
+                        "content": msg['content']
                     })
 
             if not formatted_messages:
