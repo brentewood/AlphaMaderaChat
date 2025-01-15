@@ -369,6 +369,36 @@
       "role": "assistant",
       "content": "```json\n{\n    \"response_id\": \"c6266364-8ae0-4fd3-82bb-0377bc0c98ae\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"list my foods so far today\",\n    \"bot-response\": \"\ud83c\udf74 Here's what you've eaten so far today, Brent:\\n\\n1. **Double Cheeseburger**: 750 kcal\\n2. **Side Salad (with Blue Cheese)**: 200 kcal\\n3. **Red Wine (2 glasses total)**: 250 kcal\\n4. **Orange**: 62 kcal\\n5. **Apple**: 95 kcal\\n6. **Banana**: 105 kcal\\n7. **Rice Crackers with Cheese**: 150 kcal\\n8. **Marcona Almonds (1 handful)**: 160 kcal\\n9. **Water**: 0 kcal\\n\\n**Total Calories So Far:** 1,772 kcal \u2705\\n\\nLet me know if you'd like to adjust or add anything! \ud83c\udf1f\",\n    \"dsl\": [\"LIST FOODS\"]\n}\n```",
       "timestamp": "2025-01-14T17:53:20.414588"
+    },
+    {
+      "role": "user",
+      "content": "what is today",
+      "timestamp": "2025-01-15T15:43:35.945528"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"32879cac-9cc4-4f7e-abbc-07ab53665d3b\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"what is today\",\n    \"bot-response\": \"\ud83d\udcc5 Today is **January 14, 2025**. Hope you're having a great day, Brent! \ud83d\ude0a\",\n    \"dsl\": [\"GET DATE\"]\n}\n```",
+      "timestamp": "2025-01-15T15:43:43.732309"
+    },
+    {
+      "role": "user",
+      "content": "list foods",
+      "timestamp": "2025-01-15T15:43:48.353208"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"5c5664f4-4dc8-4d25-9f8e-78957432d596\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"list foods\",\n    \"bot-response\": \"\ud83d\uddd2\ufe0f Here's your food log for today, Brent:\\n\\n1. **Double Cheeseburger**: 750 kcal\\n2. **Side Salad (with Blue Cheese)**: 200 kcal\\n3. **Red Wine (2 glasses total)**: 250 kcal\\n4. **Orange**: 62 kcal\\n5. **Apple**: 95 kcal\\n6. **Banana**: 105 kcal\\n7. **Rice Crackers with Cheese**: 150 kcal\\n8. **Marcona Almonds (1 handful)**: 160 kcal\\n9. **Water**: 0 kcal\\n\\n**Total Calories So Far:** 1,772 kcal \u2705\\n\\nLet me know if you'd like a breakdown or adjustments! \ud83c\udf1f\",\n    \"dsl\": [\"LIST FOODS\"]\n}\n```",
+      "timestamp": "2025-01-15T15:43:53.196175"
+    },
+    {
+      "role": "user",
+      "content": "ate an apple",
+      "timestamp": "2025-01-15T15:44:04.119900"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"0f15788b-8c6b-40a4-b535-c390bc4e5065\",\n    \"response_type\": \"food_diary_response\",\n    \"user_input\": \"ate an apple\",\n    \"bot-response\": \"**Yay for fruit! \ud83c\udf4e Here's what I\u2019ve added to your food diary:**\\n\\n- **Apple:** 95 kcal, 0g Protein, 25g Carbs, 0g Fat\\n\\n**Calories So Far:** 1,867 kcal \u2705\\n**Over by 67 kcal**, but you're still doing great overall! \ud83c\udfaf\\n\\n**Macros So Far:** \ud83c\udf57 Protein: 64g | \ud83c\udf5e Carbs: 176g | \ud83e\udd51 Fat: 98g\\n**Macros Remaining:** \ud83c\udf57 Protein: 71g | \ud83c\udf5e Carbs: -35g (!) | \ud83e\udd51 Fat: 12g\\n\\nKeep up the amazing effort, Brent! \ud83d\udcaa Let me know what\u2019s next! \ud83c\udf1f\",\n    \"dsl\": [\"RECORD FOOD ate an apple\"],\n    \"food_items\": [\n        {\n            \"name\": \"Apple\",\n            \"quantity\": \"1\",\n            \"calories\": 95.0,\n            \"protein_grams\": 0.0,\n            \"carbohydrates_grams\": 25.0,\n            \"net_carbs_grams\": 23.0,\n            \"fat_grams\": 0.0,\n            \"fiber_grams\": 3.0,\n            \"sugar_grams\": 19.0,\n            \"added_sugar_grams\": 0.0,\n            \"sodium_mg\": 2.0,\n            \"cholesterol_mg\": 0.0,\n            \"saturated_fat_grams\": 0.0,\n            \"unsaturated_fat_grams\": 0.0,\n            \"trans_fat_grams\": 0.0,\n            \"potassium_mg\": 195.0,\n            \"vitamin_a_mcg\": 0.0,\n            \"vitamin_c_mg\": 8.0,\n            \"vitamin_d_mcg\": 0.0,\n            \"vitamin_k_mcg\": 3.0,\n            \"calcium_mg\": 11.0,\n            \"iron_mg\": 0.2,\n            \"magnesium_mg\": 9.0,\n            \"phosphorus_mg\": 20.0,\n            \"zinc_mg\": 0.1,\n            \"selenium_mcg\": 0.1,\n            \"copper_mg\": 0.1,\n            \"manganese_mg\": 0.1,\n            \"omega_3_grams\": 0.0,\n            \"omega_6_grams\": 0.0,\n            \"omega_9_grams\": 0.0,\n            \"water_ml\": 86.0,\n            \"alcohol_grams\": 0.0,\n            \"caffeine_mg\": 0.0\n        }\n    ]\n}\n```",
+      "timestamp": "2025-01-15T15:44:12.465400"
     }
   ]
 }

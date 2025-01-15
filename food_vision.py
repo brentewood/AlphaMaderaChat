@@ -1,14 +1,23 @@
+"""Module for analyzing food images using AI vision APIs and S3 storage.
+
+Provides the FoodVision class that combines cloud storage and AI analysis capabilities."""
+
+# Standard library imports
 import os
 import uuid
 import base64
+import io
 from typing import Tuple
+
+# Third party imports
 import yaml
 from dotenv import load_dotenv
+from PIL import Image
+
+# Local imports
 from ai_drivers.claude_driver import ClaudeDriver
 from ai_drivers.openai_driver import OpenAIDriver
 from s3_utils import S3Utils
-from PIL import Image
-import io
 
 class FoodVision:
     """A class that analyzes food images using AI vision APIs and stores them in S3.
@@ -24,9 +33,12 @@ class FoodVision:
 
     def __init__(self, image_path: str, hint: str = None, prompt: str = None):
         """Initialize FoodVision with image path and optional hint/prompt"""
+        # Load environment variables first
+        load_dotenv()
+
         self.image_path = image_path
         self.hint = hint
-        self.prompt = prompt or "Please describe what food items you see in this image in detail."
+        self.prompt = prompt or os.getenv('FOOD_VISION_PROMPT') or "Please describe what food items you see in this image in detail."
 
         # Load configuration
         self.load_config()
@@ -106,42 +118,8 @@ class FoodVision:
         if self.hint:
             message_content += f"Additional context: {self.hint}\n"
 
-        # Format messages based on provider
-        provider = self.config['ai_provider']
-        if provider == 'claude':
-            messages = [{
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": message_content
-                    },
-                    {
-                        "type": "image",
-                        "source": {
-                            "type": "base64",
-                            "media_type": "image/jpeg",
-                            "data": image_data
-                        }
-                    }
-                ]
-            }]
-        else:  # OpenAI
-            messages = [{
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": message_content
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/jpeg;base64,{image_data}"
-                        }
-                    }
-                ]
-            }]
+        # Get formatted messages from driver
+        messages = self.driver.format_vision_message(message_content, image_data)
 
         # Get AI description
         description = self.driver.generate_response(messages)
