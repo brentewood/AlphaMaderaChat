@@ -1,3 +1,5 @@
+"""OpenAI GPT-4 Vision driver implementation for image analysis and chat."""
+
 from openai import OpenAI
 from .base_driver import AIDriver
 
