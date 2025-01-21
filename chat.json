@@ -399,6 +399,196 @@
       "role": "assistant",
       "content": "```json\n{\n    \"response_id\": \"0f15788b-8c6b-40a4-b535-c390bc4e5065\",\n    \"response_type\": \"food_diary_response\",\n    \"user_input\": \"ate an apple\",\n    \"bot-response\": \"**Yay for fruit! \ud83c\udf4e Here's what I\u2019ve added to your food diary:**\\n\\n- **Apple:** 95 kcal, 0g Protein, 25g Carbs, 0g Fat\\n\\n**Calories So Far:** 1,867 kcal \u2705\\n**Over by 67 kcal**, but you're still doing great overall! \ud83c\udfaf\\n\\n**Macros So Far:** \ud83c\udf57 Protein: 64g | \ud83c\udf5e Carbs: 176g | \ud83e\udd51 Fat: 98g\\n**Macros Remaining:** \ud83c\udf57 Protein: 71g | \ud83c\udf5e Carbs: -35g (!) | \ud83e\udd51 Fat: 12g\\n\\nKeep up the amazing effort, Brent! \ud83d\udcaa Let me know what\u2019s next! \ud83c\udf1f\",\n    \"dsl\": [\"RECORD FOOD ate an apple\"],\n    \"food_items\": [\n        {\n            \"name\": \"Apple\",\n            \"quantity\": \"1\",\n            \"calories\": 95.0,\n            \"protein_grams\": 0.0,\n            \"carbohydrates_grams\": 25.0,\n            \"net_carbs_grams\": 23.0,\n            \"fat_grams\": 0.0,\n            \"fiber_grams\": 3.0,\n            \"sugar_grams\": 19.0,\n            \"added_sugar_grams\": 0.0,\n            \"sodium_mg\": 2.0,\n            \"cholesterol_mg\": 0.0,\n            \"saturated_fat_grams\": 0.0,\n            \"unsaturated_fat_grams\": 0.0,\n            \"trans_fat_grams\": 0.0,\n            \"potassium_mg\": 195.0,\n            \"vitamin_a_mcg\": 0.0,\n            \"vitamin_c_mg\": 8.0,\n            \"vitamin_d_mcg\": 0.0,\n            \"vitamin_k_mcg\": 3.0,\n            \"calcium_mg\": 11.0,\n            \"iron_mg\": 0.2,\n            \"magnesium_mg\": 9.0,\n            \"phosphorus_mg\": 20.0,\n            \"zinc_mg\": 0.1,\n            \"selenium_mcg\": 0.1,\n            \"copper_mg\": 0.1,\n            \"manganese_mg\": 0.1,\n            \"omega_3_grams\": 0.0,\n            \"omega_6_grams\": 0.0,\n            \"omega_9_grams\": 0.0,\n            \"water_ml\": 86.0,\n            \"alcohol_grams\": 0.0,\n            \"caffeine_mg\": 0.0\n        }\n    ]\n}\n```",
       "timestamp": "2025-01-15T15:44:12.465400"
+    },
+    {
+      "role": "user",
+      "content": "what is your name?",
+      "timestamp": "2025-01-20T17:06:05.276548"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"740f8d83-d81d-40c3-b8d8-9fb2e2edbc1b\",\n    \"response_type\": \"general_response\",\n    \"user_input\": \"what is your name?\",\n    \"bot-response\": \"I'm **AlphaDiet**, your fun and friendly dietician bot! \ud83e\udd57\ud83d\udcaa Let's smash those nutrition goals together, Brent! \ud83d\ude80\",\n    \"dsl\": []\n}\n```",
+      "timestamp": "2025-01-20T17:06:11.924382"
+    },
+    {
+      "role": "user",
+      "content": "i ate a quarter punder with cheese, milshake, and two order of fries, and a large coke",
+      "timestamp": "2025-01-20T17:06:36.909857"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"4e329118-d0c5-4dc8-a389-5dff8e9203fa\",\n    \"response_type\": \"food_diary_response\",\n    \"user_input\": \"i ate a quarter pounder with cheese, milkshake, two orders of fries, and a large coke\",\n    \"bot-response\": \"**Whoa, you went big! \ud83c\udf54\ud83c\udf5f\ud83e\udd64 Here's the breakdown of your indulgent meal:**\\n\\n- **Quarter Pounder with Cheese**: 520 kcal, 30g Protein, 42g Carbs, 26g Fat\\n- **Milkshake (Medium, Vanilla)**: 590 kcal, 12g Protein, 88g Carbs, 16g Fat\\n- **Fries (2 Medium Orders)**: 670 kcal, 8g Protein, 88g Carbs, 32g Fat\\n- **Large Coke**: 310 kcal, 0g Protein, 78g Carbs, 0g Fat\\n\\n**Meal Total:** 2,090 kcal \ud83d\ude2f\\n\\n**Calories So Far:** 3,957 kcal \ud83c\udf5f\\n**Over by 2,157 kcal**, but that\u2019s okay\u2014one day won\u2019t make or break your progress! \ud83d\ude0a\\n\\n**Macros So Far:** \ud83c\udf57 Protein: 114g | \ud83c\udf5e Carbs: 472g | \ud83e\udd51 Fat: 172g\\n**Macros Remaining:** \ud83c\udf57 Protein: 21g | \ud83c\udf5e Carbs: -404g (!) | \ud83e\udd51 Fat: -62g (!!)\\n\\nTomorrow, let\u2019s refocus on balanced, low-carb meals. You got this, Brent! \ud83d\udcaa\u2728\",\n    \"dsl\": [\"RECORD FOOD i ate a quarter pounder with cheese, milkshake, two orders of fries, and a large coke\"],\n    \"food_items\": [\n        {\n            \"name\": \"Quarter Pounder with Cheese\",\n            \"quantity\": \"1\",\n            \"calories\": 520.0,\n            \"protein_grams\": 30.0,\n            \"carbohydrates_grams\": 42.0,\n            \"net_carbs_grams\": 40.0,\n            \"fat_grams\": 26.0,\n            \"fiber_grams\": 2.0,\n            \"sugar_grams\": 10.0,\n            \"added_sugar_grams\": 4.0,\n            \"sodium_mg\": 1110.0,\n            \"cholesterol_mg\": 90.0,\n            \"saturated_fat_grams\": 13.0,\n            \"unsaturated_fat_grams\": 13.0,\n            \"trans_fat_grams\": 1.0,\n            \"potassium_mg\": 400.0\n        },\n        {\n            \"name\": \"Milkshake (Medium, Vanilla)\",\n            \"quantity\": \"1\",\n            \"calories\": 590.0,\n            \"protein_grams\": 12.0,\n            \"carbohydrates_grams\": 88.0,\n            \"net_carbs_grams\": 86.0,\n            \"fat_grams\": 16.0,\n            \"fiber_grams\": 2.0,\n            \"sugar_grams\": 72.0,\n            \"added_sugar_grams\": 40.0,\n            \"sodium_mg\": 260.0,\n            \"cholesterol_mg\": 55.0,\n            \"saturated_fat_grams\": 10.0,\n            \"unsaturated_fat_grams\": 6.0,\n            \"trans_fat_grams\": 0.0,\n            \"potassium_mg\": 690.0\n        },\n        {\n            \"name\": \"Fries (Medium)\",\n            \"quantity\": \"2 Orders\",\n            \"calories\": 670.0,\n            \"protein_grams\": 8.0,\n            \"carbohydrates_grams\": 88.0,\n            \"net_carbs_grams\": 85.0,\n            \"fat_grams\": 32.0,\n            \"fiber_grams\": 6.0,\n            \"sugar_grams\": 0.0,\n            \"added_sugar_grams\": 0.0,\n            \"sodium_mg\": 440.0,\n            \"cholesterol_mg\": 0.0,\n            \"saturated_fat_grams\": 5.0,\n            \"unsaturated_fat_grams\": 27.0,\n            \"trans_fat_grams\": 0.5,\n            \"potassium_mg\": 890.0\n        },\n        {\n            \"name\": \"Large Coke\",\n            \"quantity\": \"1\",\n            \"calories\": 310.0,\n            \"protein_grams\": 0.0,\n            \"carbohydrates_grams\": 78.0,\n            \"net_carbs_grams\": 78.0,\n            \"fat_grams\": 0.0,\n            \"fiber_grams\": 0.0,\n            \"sugar_grams\": 78.0,\n            \"added_sugar_grams\": 78.0,\n            \"sodium_mg\": 30.0,\n            \"cholesterol_mg\": 0.0,\n            \"saturated_fat_grams\": 0.0,\n            \"unsaturated_fat_grams\": 0.0,\n            \"trans_fat_grams\": 0.0,\n            \"potassium_mg\": 20.0\n        }\n    ]\n}\n```",
+      "timestamp": "2025-01-20T17:06:55.435576"
+    },
+    {
+      "role": "user",
+      "content": "what is the date",
+      "timestamp": "2025-01-20T17:07:11.620131"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"3dc9e6b1-f6e5-4c9f-abad-73fdf4b49131\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"what is the date\",\n    \"bot-response\": \"\ud83d\udcc5 Today is **January 14, 2025**. You're doing great, Brent! Keep it up! \ud83d\ude0a\",\n    \"dsl\": [\"GET DATE\"]\n}\n```",
+      "timestamp": "2025-01-20T17:07:14.988092"
+    },
+    {
+      "role": "user",
+      "content": "list my foods so far",
+      "timestamp": "2025-01-20T17:07:22.990521"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"5e37bf47-db59-4773-b72f-266c62f5ec43\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"list my foods so far\",\n    \"bot-response\": \"\ud83c\udf74 Here's your food log for today, Brent:\\n\\n1. **Double Cheeseburger**: 750 kcal\\n2. **Side Salad (with Blue Cheese)**: 200 kcal\\n3. **Red Wine (2 glasses total)**: 250 kcal\\n4. **Orange**: 62 kcal\\n5. **Apple (2 total)**: 190 kcal\\n6. **Banana**: 105 kcal\\n7. **Rice Crackers with Cheese**: 150 kcal\\n8. **Marcona Almonds (1 handful)**: 160 kcal\\n9. **Water**: 0 kcal\\n10. **Quarter Pounder with Cheese**: 520 kcal\\n11. **Milkshake (Vanilla)**: 590 kcal\\n12. **Fries (2 Medium Orders)**: 670 kcal\\n13. **Large Coke**: 310 kcal\\n\\n**Total Calories So Far:** 3,957 kcal \ud83d\udea8\\n\\nToday was definitely over, but that's okay! Tomorrow is a new opportunity to balance it out. \ud83d\udcaa Let me know how else I can help! \ud83c\udf1f\",\n    \"dsl\": [\"LIST FOODS\"]\n}\n```",
+      "timestamp": "2025-01-20T17:07:28.115940"
+    },
+    {
+      "role": "user",
+      "content": "am i onboarded?",
+      "timestamp": "2025-01-20T17:07:51.580583"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"413361ac-08fb-47c5-95f5-f60260676153\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"am i onboarded?\",\n    \"bot-response\": \"\u2705 Yes, Brent! You\u2019re fully onboarded and ready to crush your health and diet goals! \ud83d\udcaa Let me know if you'd like to update anything or need guidance. \ud83d\ude80\",\n    \"dsl\": [\"GET ONBOARDING_DATA\"]\n}\n```",
+      "timestamp": "2025-01-20T17:07:54.744608"
+    },
+    {
+      "role": "user",
+      "content": "get onboarding data",
+      "timestamp": "2025-01-20T17:08:18.775513"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"85a12092-ec0b-4d43-9ecc-f56bbd80acf5\",\n    \"response_type\": \"onboarding_data_response\",\n    \"user_input\": \"get onboarding data\",\n    \"bot-response\": \"Here is your onboarding data, Brent! \ud83c\udf89 Let\u2019s keep building on this solid foundation: \\n\\n- **Name:** Brent Eric Wood\\n- **Date of Birth:** July 14, 1966\\n- **Unit of Measurement:** Imperial\\n- **Gender:** Male\\n- **Height:** 5 ft 9 in\\n- **Starting Weight:** 227 lbs\\n- **Goal Weight:** 191 lbs\\n- **Activity Level:** Moderately active\\n- **Dietary Restrictions:** No shellfish\\n- **Diet Type:** Low-carb\\n- **Body Fat Percentage:** 30%\\n- **Weekly Weight Change:** 2 lbs\",\n    \"dsl\": [\"GET ONBOARDING_DATA\"],\n    \"onboarding_data\": {\n        \"name\": \"Brent Eric Wood\",\n        \"date_of_birth\": \"1966-07-14\",\n        \"unit_of_measurement\": \"imperial\",\n        \"gender\": \"male\",\n        \"height\": \"5 ft 9 in\",\n        \"starting_weight\": \"227 lbs\",\n        \"goal_weight\": \"191 lbs\",\n        \"activity_level\": \"moderately active\",\n        \"dietary_restrictions\": \"no shellfish\",\n        \"diet_type\": \"low-carb\",\n        \"body_fat_percentage\": \"30%\",\n        \"weekly_weight_change\": \"2 lbs\"\n    }\n}\n```",
+      "timestamp": "2025-01-20T17:08:25.003092"
+    },
+    {
+      "role": "user",
+      "content": "which weights have i recorded?",
+      "timestamp": "2025-01-20T17:08:55.277642"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"b2858ef8-152a-444b-96b2-b2445ac60d1e\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"which weights have i recorded?\",\n    \"bot-response\": \"\ud83d\udcca You haven\u2019t recorded any weights yet, Brent. Let\u2019s start tracking\u2014it\u2019s a great way to monitor your progress! \ud83d\ude80 Just let me know your current weight, and I\u2019ll record it for you. \u2696\ufe0f\",\n    \"dsl\": [\"GET WEIGHT\"]\n}\n```",
+      "timestamp": "2025-01-20T17:08:58.694985"
+    },
+    {
+      "role": "user",
+      "content": "i have not recorded any weights for all days?",
+      "timestamp": "2025-01-20T17:09:20.439825"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"3ecbc06d-d272-456f-9ba4-67c599c97298\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"i have not recorded any weights for all days?\",\n    \"bot-response\": \"Correct, Brent! You haven\u2019t recorded any weights so far. \u2696\ufe0f Tracking your weight consistently can help in understanding your progress. Let\u2019s start now\u2014what\u2019s your current weight? \ud83d\ude0a\",\n    \"dsl\": [\"GET WEIGHT\"]\n}\n```",
+      "timestamp": "2025-01-20T17:09:24.577133"
+    },
+    {
+      "role": "user",
+      "content": "what is my starting weight?",
+      "timestamp": "2025-01-20T17:09:33.280843"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"5e94faa5-d1ea-4078-a40f-51037554aeac\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"what is my starting weight?\",\n    \"bot-response\": \"Your starting weight is **227 lbs**, Brent. Let's work towards your goal of **191 lbs**! \ud83d\udcaa\",\n    \"dsl\": [\"GET STARTING_WEIGHT\"]\n}\n```",
+      "timestamp": "2025-01-20T17:09:36.007165"
+    },
+    {
+      "role": "user",
+      "content": "today is jan 20 2025",
+      "timestamp": "2025-01-20T17:09:52.781431"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"72d8bf2f-cffb-4041-8c7f-92b82faa36c4\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"today is jan 20 2025\",\n    \"bot-response\": \"\u2728 **Happy New Day!** \ud83c\udf89 I've reset your calorie and macro tracking for today, January 20, 2025. Let's stay on track and hit your goals, Brent! \ud83c\udf1f Don't forget to log your weight when you're ready. \ud83d\udcaa\",\n    \"dsl\": [\"SET DATE 2025-01-20\"]\n}\n```",
+      "timestamp": "2025-01-20T17:09:56.302789"
+    },
+    {
+      "role": "user",
+      "content": "i weigh 221.6 today",
+      "timestamp": "2025-01-20T17:10:49.224710"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"b1afaa61-3ebd-4fa3-95d5-4ec9505763ae\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"i weigh 221.6 today\",\n    \"bot-response\": \"\u2705 Weight logged! Your current weight is **221.6 lbs**. Great job, Brent\u2014you\u2019re making progress toward your goal of **191 lbs**! \ud83c\udfaf\ud83d\udc4f\",\n    \"dsl\": [\"RECORD WEIGHT 221.6 lbs\"]\n}\n```",
+      "timestamp": "2025-01-20T17:10:53.247157"
+    },
+    {
+      "role": "user",
+      "content": "what is my weekly weight loss",
+      "timestamp": "2025-01-20T17:12:01.544198"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"bb2457f2-0aaf-4ecb-9fb7-3914914cb1c6\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"what is my weekly weight loss\",\n    \"bot-response\": \"Your target weekly weight loss is **2 lbs**. You're currently down **5.4 lbs** from your starting weight of 227 lbs\u2014an amazing start, Brent! \ud83c\udf89\ud83d\udc4f Keep up the momentum! \ud83d\udcaa\",\n    \"dsl\": [\"GET WEEKLY_WEIGHT_CHANGE\"]\n}\n```",
+      "timestamp": "2025-01-20T17:12:07.746102"
+    },
+    {
+      "role": "user",
+      "content": "how many pounds per week",
+      "timestamp": "2025-01-20T17:12:42.117932"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"a241852c-5de1-481d-9ca1-c4607d541f6e\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"how many pounds per week\",\n    \"bot-response\": \"You're targeting a weight loss of **2 lbs per week**, Brent. You've already made excellent progress\u2014let\u2019s keep it up! \ud83c\udfaf\ud83d\ude4c\",\n    \"dsl\": [\"GET WEEKLY_WEIGHT_CHANGE\"]\n}\n```",
+      "timestamp": "2025-01-20T17:12:45.268923"
+    },
+    {
+      "role": "user",
+      "content": "how many pounds per week is my average",
+      "timestamp": "2025-01-20T17:13:00.839665"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"72992b99-962c-4f92-91e2-3f8351d4eca6\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"how many pounds per week is my average\",\n    \"bot-response\": \"\ud83d\udcca Based on your starting weight of **227 lbs** and your current weight of **221.6 lbs**, you've lost **5.4 lbs** over **6 days** (since January 14, 2025). That's an average of **~0.9 lbs/day** or **~6.3 lbs/week**. \ud83d\udd25 Amazing progress, Brent! \ud83c\udf89 Let's aim to pace it closer to the target of **2 lbs/week** for sustainable results. \ud83d\udcaa\",\n    \"dsl\": [\"GET STARTING_WEIGHT\", \"GET WEIGHT\", \"GET DIET_START_DATE\"]\n}\n```",
+      "timestamp": "2025-01-20T17:13:05.607734"
+    },
+    {
+      "role": "user",
+      "content": "what is my diet start date",
+      "timestamp": "2025-01-20T17:13:24.390642"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"2726f13d-ec27-4b60-8d7e-b0a1ac0e5729\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"what is my diet start date\",\n    \"bot-response\": \"\ud83d\udcc5 Your diet start date is **January 14, 2025**. Great progress so far, Brent! \ud83c\udfaf Keep up the awesome work! \ud83d\udcaa\",\n    \"dsl\": [\"GET DIET_START_DATE\"]\n}\n```",
+      "timestamp": "2025-01-20T17:13:27.859047"
+    },
+    {
+      "role": "user",
+      "content": "no my diet start date is jan 2 2025",
+      "timestamp": "2025-01-20T17:13:40.729120"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"3ed2369a-fb34-429a-94c7-24cc9c9aeb93\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"no my diet start date is jan 2 2025\",\n    \"bot-response\": \"Got it, Brent! Your diet start date has been updated to **January 2, 2025**. \ud83d\uddd3\ufe0f Let me know if there\u2019s anything else you'd like to adjust! \ud83c\udf1f\",\n    \"dsl\": [\"SET DIET_START_DATE 2025-01-02\"]\n}\n```",
+      "timestamp": "2025-01-20T17:13:44.214212"
+    },
+    {
+      "role": "user",
+      "content": "what is my average weight loss per week in pounds",
+      "timestamp": "2025-01-20T17:13:59.307399"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"5b62dad0-e2c8-4d59-8e35-380564c8f5a0\",\n    \"response_type\": \"command_response\",\n    \"user_input\": \"what is my average weight loss per week in pounds\",\n    \"bot-response\": \"\ud83d\udcca Since your diet start date of **January 2, 2025**, you\u2019ve lost **5.4 lbs** over **18 days**. That\u2019s an average of **~2.1 lbs per week**\u2014right on target! \ud83c\udf89\ud83d\udc4f Keep up the great work, Brent! \ud83d\udcaa\",\n    \"dsl\": [\"GET STARTING_WEIGHT\", \"GET WEIGHT\", \"GET DIET_START_DATE\"]\n}\n```",
+      "timestamp": "2025-01-20T17:14:03.696114"
+    },
+    {
+      "role": "user",
+      "content": "get onboarding data",
+      "timestamp": "2025-01-20T17:14:16.079134"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"f8634375-72f5-4b96-98bf-ae6653dcd4d4\",\n    \"response_type\": \"onboarding_data_response\",\n    \"user_input\": \"get onboarding data\",\n    \"bot-response\": \"Here is your onboarding data, Brent! \ud83c\udf89 Let\u2019s keep building on this solid foundation: \\n\\n- **Name:** Brent Eric Wood\\n- **Date of Birth:** July 14, 1966\\n- **Unit of Measurement:** Imperial\\n- **Gender:** Male\\n- **Height:** 5 ft 9 in\\n- **Starting Weight:** 227 lbs\\n- **Goal Weight:** 191 lbs\\n- **Activity Level:** Moderately active\\n- **Dietary Restrictions:** No shellfish\\n- **Diet Type:** Low-carb\\n- **Body Fat Percentage:** 30%\\n- **Weekly Weight Change:** 2 lbs\\n- **Diet Start Date:** January 2, 2025\",\n    \"dsl\": [\"GET ONBOARDING_DATA\"],\n    \"onboarding_data\": {\n        \"name\": \"Brent Eric Wood\",\n        \"date_of_birth\": \"1966-07-14\",\n        \"unit_of_measurement\": \"imperial\",\n        \"gender\": \"male\",\n        \"height\": \"5 ft 9 in\",\n        \"starting_weight\": \"227 lbs\",\n        \"goal_weight\": \"191 lbs\",\n        \"activity_level\": \"moderately active\",\n        \"dietary_restrictions\": \"no shellfish\",\n        \"diet_type\": \"low-carb\",\n        \"body_fat_percentage\": \"30%\",\n        \"weekly_weight_change\": \"2 lbs\",\n        \"diet_start_date\": \"2025-01-02\"\n    }\n}\n```",
+      "timestamp": "2025-01-20T17:14:23.479935"
+    },
+    {
+      "role": "user",
+      "content": "i ate two slices of fungi pizza",
+      "timestamp": "2025-01-20T17:19:46.305084"
+    },
+    {
+      "role": "assistant",
+      "content": "```json\n{\n    \"response_id\": \"5ac93d8a-d667-442c-8063-4023da33900d\",\n    \"response_type\": \"food_diary_response\",\n    \"user_input\": \"i ate two slices of fungi pizza\",\n    \"bot-response\": \"**Mmm, fungi pizza! \ud83c\udf55 Here's the breakdown:**\\n\\n- **Fungi Pizza (2 slices):** 440 kcal, 18g Protein, 48g Carbs, 18g Fat\\n\\n**Calories So Far Today:** 440 kcal \u2705\\n**Calories Remaining Today:** 1,360 kcal \ud83c\udfaf\\n\\n**Macros So Far:** \ud83c\udf57 Protein: 18g | \ud83c\udf5e Carbs: 48g | \ud83e\udd51 Fat: 18g\\n**Macros Remaining:** \ud83c\udf57 Protein: 117g | \ud83c\udf5e Carbs: 20g | \ud83e\udd51 Fat: 92g\\n\\nGreat start to your day, Brent! Let\u2019s keep it going! \ud83d\udcaa\",\n    \"dsl\": [\"RECORD FOOD i ate two slices of fungi pizza\"],\n    \"food_items\": [\n        {\n            \"name\": \"Fungi Pizza\",\n            \"quantity\": \"2 slices\",\n            \"calories\": 440.0,\n            \"protein_grams\": 18.0,\n            \"carbohydrates_grams\": 48.0,\n            \"net_carbs_grams\": 45.0,\n            \"fat_grams\": 18.0,\n            \"fiber_grams\": 3.0,\n            \"sugar_grams\": 8.0,\n            \"added_sugar_grams\": 2.0,\n            \"sodium_mg\": 900.0,\n            \"cholesterol_mg\": 30.0,\n            \"saturated_fat_grams\": 7.0,\n            \"unsaturated_fat_grams\": 11.0,\n            \"trans_fat_grams\": 0.0,\n            \"potassium_mg\": 370.0,\n            \"vitamin_a_mcg\": 200.0,\n            \"vitamin_c_mg\": 2.0,\n            \"vitamin_d_mcg\": 0.2,\n            \"vitamin_k_mcg\": 10.0,\n            \"calcium_mg\": 250.0,\n            \"iron_mg\": 2.5,\n            \"magnesium_mg\": 20.0,\n            \"phosphorus_mg\": 180.0,\n            \"zinc_mg\": 1.5,\n            \"selenium_mcg\": 12.0,\n            \"copper_mg\": 0.1,\n            \"manganese_mg\": 0.2,\n            \"omega_3_grams\": 0.1,\n            \"omega_6_grams\": 1.5,\n            \"omega_9_grams\": 1.0,\n            \"water_ml\": 100.0,\n            \"alcohol_grams\": 0.0,\n            \"caffeine_mg\": 0.0\n        }\n    ]\n}\n```",
+      "timestamp": "2025-01-20T17:19:56.704860"
     }
   ]
 }
