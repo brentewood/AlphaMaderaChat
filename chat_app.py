@@ -7,6 +7,7 @@ import yaml
 from dotenv import load_dotenv
 from ai_drivers.claude_driver import ClaudeDriver
 from ai_drivers.openai_driver import OpenAIDriver
+from ai_drivers.grok_driver import GrokDriver
 
 class AIChat:
     """Chat interface for interacting with AI models.
@@ -15,7 +16,8 @@ class AIChat:
 
     DRIVER_MAPPING = {
         'claude': ClaudeDriver,
-        'openai': OpenAIDriver
+        'openai': OpenAIDriver,
+        'grok': GrokDriver
     }
 
     def __init__(self):

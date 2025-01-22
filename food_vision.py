@@ -17,6 +17,7 @@ from PIL import Image
 # Local imports
 from ai_drivers.claude_driver import ClaudeDriver
 from ai_drivers.openai_driver import OpenAIDriver
+from ai_drivers.grok_driver import GrokDriver
 from s3_utils import S3Utils
 
 class FoodVision:
@@ -26,7 +27,8 @@ class FoodVision:
 
     DRIVER_MAPPING = {
         'claude': ClaudeDriver,
-        'openai': OpenAIDriver
+        'openai': OpenAIDriver,
+        'grok': GrokDriver
     }
 
     MAX_IMAGE_SIZE = (800, 800)  # Maximum dimensions for resized image
