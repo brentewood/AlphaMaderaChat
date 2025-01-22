@@ -1,4 +1,4 @@
-ai_provider: openai
+ai_provider: grok
 
 openai:
   api_key: ${OPENAI_API_KEY}
@@ -9,3 +9,9 @@ claude:
   api_key: ${ANTHROPIC_API_KEY}
   model: claude-3-5-sonnet-20241022
   max_tokens: 8192
+
+grok:
+  api_key: ${GROK_API_KEY}
+  text_model: grok-2-latest
+  vision_model: grok-2-vision-1212
+  max_tokens: 4096
