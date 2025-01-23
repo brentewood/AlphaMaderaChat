@@ -9,3 +9,9 @@ Weight loss is a big problem in the US.  We believe that AI can help people lose
 We dont know how quickly LLM other generative AI models will improve - so we'll start with the basics and then move on to more complex models and problems.
 
 We will leverage existing consumer ecosystems like Apple Health and Google Fit to facilitate the collection of data. Our value will be in the analysis of the data and the recommendations we can make to the user. As an example, if one our customers has goal to lose weight but not lose muscle mass, we can recommend a diet that is low in calories but high in protein and healthy fats. We can calculate with acceptionable accuracy the amount of calories and macronutrients that they should consume and specific recipes that they should eat.
+
+# design
+
+we will use the following schema for the user's food diary.
+
+```json
