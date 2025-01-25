@@ -1,6 +1,6 @@
-"""Module for analyzing food images using AI vision APIs and S3 storage.
+"""Module for analyzing images using AI vision APIs and S3 storage.
 
-Provides the FoodVision class that combines cloud storage and AI analysis capabilities."""
+Provides the Vision class that combines cloud storage and AI analysis capabilities."""
 
 # Standard library imports
 import os
@@ -20,10 +20,10 @@ from ai_drivers.openai_driver import OpenAIDriver
 from ai_drivers.grok_driver import GrokDriver
 from s3_utils import S3Utils
 
-class FoodVision:
-    """A class that analyzes food images using AI vision APIs and stores them in S3.
+class Vision:
+    """A class that analyzes images using AI vision APIs and stores them in S3.
 
-    Combines AWS S3 storage with AI vision analysis to process food images and generate descriptions."""
+    Combines AWS S3 storage with AI vision analysis to process images and generate descriptions."""
 
     DRIVER_MAPPING = {
         'claude': ClaudeDriver,
@@ -34,13 +34,14 @@ class FoodVision:
     MAX_IMAGE_SIZE = (800, 800)  # Maximum dimensions for resized image
 
     def __init__(self, image_path: str, hint: str = None, prompt: str = None):
-        """Initialize FoodVision with image path and optional hint/prompt"""
+        """Initialize Vision with image path and optional hint/prompt"""
         # Load environment variables first
-        load_dotenv()
+        load_dotenv('.env.local')  # Load .env.local first
+        load_dotenv('.env')  # Fall back to .env
 
         self.image_path = image_path
         self.hint = hint
-        self.prompt = prompt or os.getenv('FOOD_VISION_PROMPT') or "Please describe what food items you see in this image in detail."
+        self.prompt = prompt or os.getenv('VISION_PROMPT') or "Please describe what you see in this image in detail."
 
         # Load configuration
         self.load_config()
@@ -58,7 +59,8 @@ class FoodVision:
 
     def load_config(self):
         """Load configuration from config.yaml and environment variables"""
-        load_dotenv()
+        load_dotenv('.env.local')  # Load .env.local first
+        load_dotenv('.env')  # Fall back to .env
         with open('config.yaml', 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
 

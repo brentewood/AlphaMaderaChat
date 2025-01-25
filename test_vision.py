@@ -1,19 +1,20 @@
-"""Command line utility to test FoodVision class with food images."""
+"""Command line utility to test Vision class with images."""
 
 import argparse
-from food_vision import FoodVision
+from vision import Vision
 
 def main():
-    parser = argparse.ArgumentParser(description='Test FoodVision with a food image')
-    parser.add_argument('image_path', help='Path to the food image file')
+    """Run the Vision analysis on an image file using command line arguments."""
+    parser = argparse.ArgumentParser(description='Test Vision with an image')
+    parser.add_argument('image_path', help='Path to the image file')
     parser.add_argument('--hint', help='Optional hint about the image content')
     parser.add_argument('--prompt', help='Custom prompt for the AI vision analysis')
 
     args = parser.parse_args()
 
     try:
-        # Initialize FoodVision with command line arguments
-        vision = FoodVision(
+        # Initialize Vision with command line arguments
+        vision = Vision(
             image_path=args.image_path,
             hint=args.hint,
             prompt=args.prompt
@@ -34,7 +35,7 @@ def main():
         print("-" * 50)
         print(description)
 
-    except Exception as e:
+    except (FileNotFoundError, ValueError, IOError) as e:
         print(f"\nError: {str(e)}")
         return 1
 

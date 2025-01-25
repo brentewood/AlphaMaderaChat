@@ -29,7 +29,8 @@ class AIChat:
 
     def load_config(self):
         """Load configuration from config.yaml and replace environment variables."""
-        load_dotenv()
+        load_dotenv('.env.local')  # Load .env.local first
+        load_dotenv('.env')  # Fall back to .env
         print("\nLoading configuration...")
         with open('config.yaml', 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
