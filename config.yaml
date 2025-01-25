@@ -1,8 +1,8 @@
-ai_provider: claude
+ai_provider: grok
 
 openai:
   api_key: ${OPENAI_API_KEY}
-  model: chatgpt-4o-latest
+  model: gpt-4o-mini-2024-07-18
   max_tokens: 4096
 
 claude:

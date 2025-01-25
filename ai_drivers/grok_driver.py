@@ -6,6 +6,14 @@ from .base_driver import AIDriver
 class GrokDriver(AIDriver):
     """xAI Grok driver implementation for image analysis."""
 
+    def __init__(self):
+        """Initialize default attributes."""
+        super().__init__()
+        self.client = None
+        self.text_model = None
+        self.vision_model = None
+        self.max_tokens = None
+
     def initialize(self, config):
         """Initialize the driver with configuration.
 
@@ -77,8 +85,9 @@ class GrokDriver(AIDriver):
 
             # Use vision model if any message contains an image
             has_image = any(
-                isinstance(msg.get("content"), dict) and "image" in msg.get("content", {})
-                for msg in messages
+                isinstance(msg.get("content"), list) and
+                any(content.get("type") == "image_url" for content in msg.get("content", []))
+                for msg in formatted_messages
             )
             model = self.vision_model if has_image else self.text_model
             print(f"Using Grok model: {model}")
@@ -102,7 +111,7 @@ class GrokDriver(AIDriver):
         except Exception as e:
             error_msg = f"Error in generate_response: {str(e)}"
             print(error_msg)
-            raise Exception(error_msg)
+            raise RuntimeError(error_msg) from e
 
     def get_default_max_tokens(self):
         """Get default maximum tokens for Grok model.
