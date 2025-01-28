@@ -1,0 +1,36 @@
+Below is a typical split between the “must-have” (essential) metrics you’ll want to collect from the start vs. the “nice-to-have” (optional/advanced) metrics you can backfill later for deeper nutritional analysis:
+
+Must-Have (Essential) Metrics
+	1.	Calories (calories)
+	2.	Protein (protein_grams)
+	3.	Carbohydrates (carbohydrates_grams)
+	4.	Fats (fats_grams)
+
+Recommended additions (because many users track net carbs, fiber, or sugar):
+	•	Fiber (fiber_grams) so you can derive net carbs (carbs minus fiber) on the fly.
+	•	Sugar (sugar_grams) is often important for users watching their sugar intake.
+
+Depending on your target audience (e.g., keto dieters), you might also want to include Net Carbs (net_carbs_grams) as a first-class metric. However, net carbs can be calculated if you have total carbs and fiber, so it’s optional to store or display separately.
+
+Nice-to-Have (Advanced) Metrics to Backfill Later
+
+These can provide deeper insights (especially for users focused on heart health, micronutrient deficiencies, or sports performance), but are not strictly essential for a basic tracking MVP:
+	•	Added sugar (added_sugar_grams)
+	•	Sodium (sodium_mg)
+	•	Cholesterol (cholesterol_mg)
+	•	Saturated fat (saturated_fat_grams)
+	•	Unsaturated fat (unsaturated_fat_grams)
+	•	Trans fat (trans_fat_grams)
+	•	Potassium (potassium_mg)
+	•	Vitamins (A, C, D, K, etc.)
+	•	Minerals (Calcium, Iron, Magnesium, Phosphorus, Zinc, Selenium, Copper, Manganese, etc.)
+	•	Omega fatty acids (omega_3_grams, omega_6_grams, omega_9_grams)
+	•	Water content (water_ml)
+	•	Alcohol (alcohol_grams)
+	•	Caffeine (caffeine_mg)
+
+These will be great for users who want a more detailed nutritional breakdown or have specific medical/dietary needs (e.g., low sodium, controlling cholesterol, etc.).
+
+Summary
+	•	MVP Essentials: Calories, Protein, Carbs, Fats (plus Fiber and possibly Sugar or Net Carbs).
+	•	Advanced / Backfill: Everything else (micronutrients, specific fats, etc.) for more nuanced health goals or medical considerations.
