@@ -12,6 +12,7 @@ class AIDriver(ABC):
         self.client = None
         self.model = None
         self.max_tokens = None
+        self.temperature = None
 
     @abstractmethod
     def initialize(self, config):

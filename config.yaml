@@ -1,17 +1,20 @@
-ai_provider: claude
+ai_provider: grok
 
 openai:
   api_key: ${OPENAI_API_KEY}
-  model: gpt-4o-mini-2024-07-18
+  model: chatgpt-4o-latest
   max_tokens: 4096
+  temperature: 0.7
 
 claude:
   api_key: ${ANTHROPIC_API_KEY}
-  model: claude-3-haiku-20240307
+  model: claude-3-5-sonnet-latest
   max_tokens: 4096
+  temperature: 0.8
 
 grok:
   api_key: ${GROK_API_KEY}
   text_model: grok-2-latest
   vision_model: grok-2-vision-1212
   max_tokens: 4096
+  temperature: 0.7
