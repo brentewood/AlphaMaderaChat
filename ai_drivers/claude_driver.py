@@ -8,13 +8,14 @@ class ClaudeDriver(AIDriver):
         """Initialize the driver with configuration.
 
         Args:
-            config (dict): Configuration with api_key, model, and max_tokens
+            config (dict): Configuration with api_key, model, max_tokens, and temperature
         """
         print(f"\nClaude Driver initializing with config: {config}")
         self.client = Anthropic(api_key=config['api_key'])
         self.model = config.get('model', 'claude-3-sonnet-20240229')
         self.max_tokens = config.get('max_tokens', 32768)
-        print(f"Claude Driver initialized with model: {self.model}, max_tokens: {self.max_tokens}")
+        self.temperature = config.get('temperature', 0.7)
+        print(f"Claude Driver initialized with model: {self.model}, max_tokens: {self.max_tokens}, temperature: {self.temperature}")
 
     def format_vision_message(self, text: str, image_data: str) -> list:
         """Format message for Claude's vision API.
@@ -65,6 +66,7 @@ class ClaudeDriver(AIDriver):
             response = self.client.messages.create(
                 model=self.model,
                 max_tokens=self.max_tokens,
+                temperature=self.temperature,
                 messages=messages,
                 stream=True
             )

@@ -13,12 +13,13 @@ class GrokDriver(AIDriver):
         self.text_model = None
         self.vision_model = None
         self.max_tokens = None
+        self.temperature = None
 
     def initialize(self, config):
         """Initialize the driver with configuration.
 
         Args:
-            config (dict): Configuration with api_key, model, and max_tokens
+            config (dict): Configuration with api_key, model, max_tokens, and temperature
         """
         print(f"\nGrok Driver initializing with config: {config}")
         self.client = OpenAI(
@@ -28,7 +29,8 @@ class GrokDriver(AIDriver):
         self.text_model = config.get('text_model', 'grok-2-latest')
         self.vision_model = config.get('vision_model', 'grok-2-vision-1212')
         self.max_tokens = config.get('max_tokens', 4096)
-        print(f"Grok Driver initialized with vision model: {self.vision_model}, text model: {self.text_model}, max_tokens: {self.max_tokens}")
+        self.temperature = config.get('temperature', 0.7)
+        print(f"Grok Driver initialized with vision model: {self.vision_model}, text model: {self.text_model}, max_tokens: {self.max_tokens}, temperature: {self.temperature}")
 
     def format_vision_message(self, text: str, image_data: str) -> list:
         """Format message for Grok's vision API.
@@ -96,7 +98,8 @@ class GrokDriver(AIDriver):
                 model=model,
                 messages=formatted_messages,
                 max_tokens=self.max_tokens,
-                stream=True
+                stream=True,
+                temperature=self.temperature
             )
 
             # Collect streamed response

@@ -10,13 +10,14 @@ class OpenAIDriver(AIDriver):
         """Initialize the driver with configuration.
 
         Args:
-            config (dict): Configuration with api_key, model, and max_tokens
+            config (dict): Configuration with api_key, model, max_tokens, and temperature
         """
         print(f"\nOpenAI Driver initializing with config: {config}")
         self.client = OpenAI(api_key=config['api_key'])
         self.model = config.get('model', 'gpt-4-vision-preview')
         self.max_tokens = config.get('max_tokens', 4096)
-        print(f"OpenAI Driver initialized with model: {self.model}, max_tokens: {self.max_tokens}")
+        self.temperature = config.get('temperature', 0.7)
+        print(f"OpenAI Driver initialized with model: {self.model}, max_tokens: {self.max_tokens}, temperature: {self.temperature}")
 
     def format_vision_message(self, text: str, image_data: str) -> list:
         """Format message for OpenAI's vision API.
@@ -60,8 +61,9 @@ class OpenAIDriver(AIDriver):
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
-                max_tokens=self.max_tokens,
                 messages=messages,
+                max_tokens=self.max_tokens,
+                temperature=self.temperature,
                 stream=True
             )
 
