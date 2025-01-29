@@ -146,6 +146,10 @@ class AIChat:
             if user_input.upper() == "QUIT":
                 break
 
+            if not user_input:
+                print("Message cannot be empty. Please try again.")
+                continue
+
             # Add user message to history
             user_message = self.format_message("user", user_input)
             self.history["messages"].append(user_message)
