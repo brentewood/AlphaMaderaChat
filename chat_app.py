@@ -9,6 +9,8 @@ from ai_drivers.claude_driver import ClaudeDriver
 from ai_drivers.openai_driver import OpenAIDriver
 from ai_drivers.grok_driver import GrokDriver
 
+print("Starting chat_app.py...")
+
 class AIChat:
     """Chat interface for interacting with AI models.
 
