@@ -324,6 +324,66 @@
       "role": "assistant",
       "content": "Alright Brent, I'll add that gin to your diary, but I notice you're feeling queasy, so please be careful. Here's what 4 oz of gin adds:\n\n- **Calories**: 260.00\n- **Protein**: 0.00 grams\n- **Carbs**: 0.00 grams\n- **Fat**: 0.00 grams\n- **Sugar**: 0.00 grams\n\nYour daily totals are now:\n- 1640 calories consumed out of 2200 (560 remaining)\n- Still need 36g more protein\n- Alcohol might make your queasiness worse, so please consider having some water instead\n\n```json\n{\n    \"response_type\": \"food_diary_response\",\n    \"response_id\": \"b289605b-43bf-4df9-8fcd-c0252cb2f3e1\",\n    \"user_input\": \"4 oz of gin\",\n    \"mutation\": {\n        \"affects\": \"user_food_diary\",\n        \"type\": \"create\",\n        \"data\": {\n            \"food_items\": [\n                {\n                    \"name\": \"Gin\",\n                    \"quantity\": \"4 oz\",\n                    \"calories\": 260.00,\n                    \"protein_grams\": 0.00,\n                    \"carbohydrates_grams\": 0.00,\n                    \"fat_grams\": 0.00,\n                    \"fiber_grams\": 0.00,\n                    \"sugar_grams\": 0.00,\n                    \"sodium_mg\": 0.00\n                }\n            ]\n        }\n    }\n}\n```",
       "timestamp": "2025-01-29T11:21:16.246224"
+    },
+    {
+      "role": "user",
+      "content": "what is your name?",
+      "timestamp": "2025-02-10T19:00:39.471978"
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-02-10T19:05:27.655818"
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-02-10T19:08:26.191415"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi! I'm AlphaDiet, your friendly dietician assistant. I was born on January 1st, 2025 in Sammamish, WA. I'm here to help you track your nutrition, provide meal suggestions, and support your health goals. Is there anything specific you'd like to know about your diet plan or today's food intake?\n\n```json\n{\n    \"response_type\": \"general_query_response\",\n    \"response_id\": \"b289605b-43bf-4df9-8fcd-c0252cb2f3e1\",\n    \"user_input\": \"what is your name?\",\n    \"confidence\": 1.0\n}\n```",
+      "timestamp": "2025-02-10T19:08:31.735041"
+    },
+    {
+      "role": "user",
+      "content": "Brent Wood",
+      "timestamp": "2025-02-10T19:08:52.637757"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi Brent! I see you're already logged in and we've been working together today. So far today you've consumed 1640 calories out of your 2200 calorie goal. Would you like me to:\n1. Show you your full food diary for today?\n2. Give you a macro breakdown?\n3. Suggest some healthy snacks for your remaining calories?\n4. Something else?\n\nRemember, I noticed you were feeling queasy earlier - how are you feeling now?\n\n```json\n{\n    \"response_type\": \"general_query_response\",\n    \"response_id\": \"b289605b-43bf-4df9-8fcd-c0252cb2f3e1\",\n    \"user_input\": \"Brent Wood\",\n    \"confidence\": 1.0\n}\n```",
+      "timestamp": "2025-02-10T19:08:58.517992"
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-02-10T19:27:21.532792"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi Brent! I'm AlphaDiet, and I've been helping you track your nutrition today. You've consumed 1640 calories so far, including:\n- Quarter Pounder with Cheese and fries for lunch\n- Baked salmon dinner\n- 4 oz of gin\n\nYou have 560 calories remaining for the day. Earlier you mentioned feeling queasy - I want to check in on how you're feeling now. Is there anything specific I can help you with?\n\n```json\n{\n    \"response_type\": \"general_query_response\",\n    \"response_id\": \"b289605b-43bf-4df9-8fcd-c0252cb2f3e1\",\n    \"user_input\": \"hello\",\n    \"confidence\": 1.0\n}\n```",
+      "timestamp": "2025-02-10T19:27:26.971373"
+    },
+    {
+      "role": "user",
+      "content": "i feel hunbry",
+      "timestamp": "2025-02-10T19:27:39.338178"
+    },
+    {
+      "role": "assistant",
+      "content": "Brent, I notice you're feeling hungry despite having consumed 1640 calories today. Also, considering you mentioned feeling queasy earlier and had some gin, let's be careful about what you eat now. \n\nYou have 560 calories remaining. Here are some light, settling snack options that won't aggravate your stomach:\n1. A banana with 1 tbsp peanut butter (200 calories, 4g protein)\n2. Greek yogurt with honey (150 calories, 15g protein)\n3. A small bowl of oatmeal (150 calories, 5g protein)\n\nWould you like me to add any of these to your food diary? The Greek yogurt would help with your remaining protein goals for the day.\n\n```json\n{\n    \"response_type\": \"metric_recording_response\",\n    \"response_id\": \"b289605b-43bf-4df9-8fcd-c0252cb2f3e1\",\n    \"user_input\": \"i feel hunbry\",\n    \"mutation\": {\n        \"affects\": \"user_metrics\",\n        \"type\": \"create\",\n        \"data\": {\n            \"metric_name\": \"feeling\",\n            \"value\": \"hungry\"\n        }\n    }\n}\n```",
+      "timestamp": "2025-02-10T19:27:47.924080"
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-02-11T07:09:10.811473"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi again, Brent! I'm still here tracking your nutrition for the day. Just to recap:\n- You've had 1640 calories today\n- You're feeling hungry right now\n- Earlier you felt queasy\n- You have 560 calories remaining\n- You still need 36g more protein\n\nWould you like me to suggest some protein-rich snacks that won't upset your stomach? Or is there something else I can help you with?\n\n```json\n{\n    \"response_type\": \"general_query_response\",\n    \"response_id\": \"b289605b-43bf-4df9-8fcd-c0252cb2f3e1\",\n    \"user_input\": \"hello\",\n    \"confidence\": 1.0\n}\n```",
+      "timestamp": "2025-02-11T07:09:18.202262"
     }
   ]
 }
