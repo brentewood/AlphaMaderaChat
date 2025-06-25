@@ -2,6 +2,9 @@
 
 from openai import OpenAI
 from .base_driver import AIDriver
+import logging
+
+logger = logging.getLogger(__name__)
 
 class OpenAIDriver(AIDriver):
     """OpenAI GPT-4 Vision driver implementation for image analysis."""
@@ -12,12 +15,17 @@ class OpenAIDriver(AIDriver):
         Args:
             config (dict): Configuration with api_key, model, max_tokens, and temperature
         """
-        print(f"\nOpenAI Driver initializing with config: {config}")
+        logger.info(f"\nOpenAI Driver initializing with config: {config}")
         self.client = OpenAI(api_key=config['api_key'])
         self.model = config.get('model', 'gpt-4-vision-preview')
         self.max_tokens = config.get('max_tokens', 4096)
         self.temperature = config.get('temperature', 0.7)
-        print(f"OpenAI Driver initialized with model: {self.model}, max_tokens: {self.max_tokens}, temperature: {self.temperature}")
+        logger.info(
+            "OpenAI Driver initialized with model: %s, max_tokens: %s, temperature: %s",
+            self.model,
+            self.max_tokens,
+            self.temperature,
+        )
 
     def format_vision_message(self, text: str, image_data: str) -> list:
         """Format message for OpenAI's vision API.
@@ -57,7 +65,7 @@ class OpenAIDriver(AIDriver):
         Raises:
             Exception: If API call fails
         """
-        print(f"\nGenerating response using model: {self.model}")
+        logger.info(f"\nGenerating response using model: {self.model}")
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -81,7 +89,7 @@ class OpenAIDriver(AIDriver):
             return full_response
 
         except Exception as e:
-            print(f"\nError in generate_response: {str(e)}")
+            logger.error(f"\nError in generate_response: {str(e)}")
             raise e
 
     def get_default_max_tokens(self):
