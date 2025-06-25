@@ -1,4 +1,4 @@
-ai_provider: grok
+ai_provider: openai
 
 openai:
   api_key: ${OPENAI_API_KEY}
