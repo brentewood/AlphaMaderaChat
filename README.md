@@ -70,7 +70,7 @@ venv\Scripts\activate     # On Windows
 python app.py
 ```
 
-3. Start chatting with the AI. Your conversation will be stored in `chat.json`.
+3. Start chatting with the AI. Your conversation will be stored in `chat.json`. In fact you can switch between providers and models by editing the `config.yaml` file and the chat history will remain. Since the chat history is stored in a JSON file, you can easily edit it by hand to add or remove messages.
 
 4. Type `QUIT` to exit the application.
 
