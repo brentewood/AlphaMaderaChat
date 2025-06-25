@@ -1,11 +1,11 @@
-"""Base abstract class for AI vision API drivers."""
+"""Base abstract class for AI chat API drivers."""
 
 from abc import ABC, abstractmethod
 
 class AIDriver(ABC):
-    """Abstract base class defining the interface for AI vision API drivers.
+    """Abstract base class defining the interface for AI chat API drivers.
 
-    All AI vision providers must implement these methods to ensure consistent behavior."""
+    All AI chat providers must implement these methods to ensure consistent behavior."""
 
     def __init__(self):
         """Initialize base attributes."""
@@ -31,18 +31,6 @@ class AIDriver(ABC):
 
         Returns:
             str: Generated text response
-        """
-
-    @abstractmethod
-    def format_vision_message(self, text: str, image_data: str) -> list:
-        """Format a message for vision analysis
-
-        Args:
-            text (str): The text content/prompt
-            image_data (str): Base64 encoded image data
-
-        Returns:
-            list: Formatted messages for the specific AI provider
         """
 
     @abstractmethod

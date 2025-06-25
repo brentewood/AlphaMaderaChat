@@ -1,4 +1,4 @@
-"""OpenAI GPT-4 Vision driver implementation for image analysis and chat."""
+"""OpenAI GPT driver implementation for text-based chat."""
 
 from openai import OpenAI
 from .base_driver import AIDriver
@@ -7,7 +7,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 class OpenAIDriver(AIDriver):
-    """OpenAI GPT-4 Vision driver implementation for image analysis."""
+    """OpenAI GPT driver implementation for text-based chat."""
 
     def initialize(self, config):
         """Initialize the driver with configuration.
@@ -17,7 +17,7 @@ class OpenAIDriver(AIDriver):
         """
         logger.info(f"\nOpenAI Driver initializing with config: {config}")
         self.client = OpenAI(api_key=config['api_key'])
-        self.model = config.get('model', 'gpt-4-vision-preview')
+        self.model = config.get('model', 'chatgpt-4o-latest')
         self.max_tokens = config.get('max_tokens', 4096)
         self.temperature = config.get('temperature', 0.7)
         logger.info(
@@ -26,32 +26,6 @@ class OpenAIDriver(AIDriver):
             self.max_tokens,
             self.temperature,
         )
-
-    def format_vision_message(self, text: str, image_data: str) -> list:
-        """Format message for OpenAI's vision API.
-
-        Args:
-            text (str): The text prompt or message
-            image_data (str): Base64 encoded image data
-
-        Returns:
-            list: Formatted messages for OpenAI's vision API
-        """
-        return [{
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": text
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/jpeg;base64,{image_data}"
-                    }
-                }
-            ]
-        }]
 
     def generate_response(self, messages):
         """Generate a response from OpenAI.
@@ -93,7 +67,7 @@ class OpenAIDriver(AIDriver):
             raise e
 
     def get_default_max_tokens(self):
-        """Get default maximum tokens for GPT-4 Vision model.
+        """Get default maximum tokens for GPT model.
 
         Returns:
             int: Default maximum tokens (4096)

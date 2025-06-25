@@ -1,4 +1,4 @@
-"""xAI Grok driver implementation for image analysis and chat."""
+"""xAI Grok driver implementation for text-based chat."""
 
 from openai import OpenAI
 from .base_driver import AIDriver
@@ -7,14 +7,13 @@ import logging
 logger = logging.getLogger(__name__)
 
 class GrokDriver(AIDriver):
-    """xAI Grok driver implementation for image analysis."""
+    """xAI Grok driver implementation for text-based chat."""
 
     def __init__(self):
         """Initialize default attributes."""
         super().__init__()
         self.client = None
-        self.text_model = None
-        self.vision_model = None
+        self.model = None
         self.max_tokens = None
         self.temperature = None
 
@@ -29,101 +28,69 @@ class GrokDriver(AIDriver):
             api_key=config['api_key'],
             base_url="https://api.x.ai/v1"
         )
-        self.text_model = config.get('text_model', 'grok-2-latest')
-        self.vision_model = config.get('vision_model', 'grok-2-vision-1212')
+        self.model = config.get('model', 'grok-2-latest')
         self.max_tokens = config.get('max_tokens', 4096)
         self.temperature = config.get('temperature', 0.7)
         logger.info(
-            "Grok Driver initialized with vision model: %s, text model: %s, max_tokens: %s, temperature: %s",
-            self.vision_model,
-            self.text_model,
+            "Grok Driver initialized with model: %s, max_tokens: %s, temperature: %s",
+            self.model,
             self.max_tokens,
             self.temperature,
         )
 
     def format_vision_message(self, text: str, image_data: str) -> list:
-        """Format message for Grok's vision API.
+        """Format message for vision API - not supported by this driver.
 
         Args:
             text (str): The text prompt or message
             image_data (str): Base64 encoded image data
 
         Returns:
-            list: Formatted messages for Grok's vision API
+            list: Formatted messages
+
+        Raises:
+            NotImplementedError: Vision functionality not supported
         """
-        return [{
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": text
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/jpeg;base64,{image_data}",
-                        "detail": "high"
-                    }
-                }
-            ]
-        }]
+        raise NotImplementedError("Vision functionality is not supported by the Grok driver")
 
     def generate_response(self, messages):
         """Generate a response from Grok.
 
         Args:
-            messages (list): List of message objects
+            messages (list): List of formatted message dictionaries
 
         Returns:
-            str: Generated response text
+            str: Generated text response
+
+        Raises:
+            Exception: If API call fails
         """
+        logger.info(f"\nGenerating response using model: {self.model}")
         try:
-            # Format messages for Grok API
-            formatted_messages = []
-            for msg in messages:
-                if isinstance(msg.get("content"), dict) and "image" in msg["content"]:
-                    # Handle image messages
-                    formatted_messages.extend(self.format_vision_message(
-                        msg["content"]["text"],
-                        msg["content"]["image"]["data"]
-                    ))
-                else:
-                    # Handle text messages
-                    formatted_messages.append({
-                        "role": msg["role"],
-                        "content": msg["content"]
-                    })
-
-            # Use vision model if any message contains an image
-            has_image = any(
-                isinstance(msg.get("content"), list) and
-                any(content.get("type") == "image_url" for content in msg.get("content", []))
-                for msg in formatted_messages
-            )
-            model = self.vision_model if has_image else self.text_model
-            logger.info(f"Using Grok model: {model}")
-
             response = self.client.chat.completions.create(
-                model=model,
-                messages=formatted_messages,
+                model=self.model,
+                messages=messages,
                 max_tokens=self.max_tokens,
                 stream=True,
                 temperature=self.temperature
             )
 
-            # Collect streamed response
+            # Handle streaming response
             collected_messages = []
             for chunk in response:
                 if chunk.choices[0].delta.content:
-                    collected_messages.append(chunk.choices[0].delta.content)
-                    print(chunk.choices[0].delta.content, end="", flush=True)
+                    chunk_message = chunk.choices[0].delta.content
+                    print(chunk_message, end='', flush=True)
+                    collected_messages.append(chunk_message)
 
-            return "".join(collected_messages)
+            # Return the complete message
+            full_response = ''.join(collected_messages)
+            print()  # Add newline after streaming
+            return full_response
 
         except Exception as e:
-            error_msg = f"Error in generate_response: {str(e)}"
-            logger.error(error_msg)
-            raise RuntimeError(error_msg) from e
+            logger.error(f"\nError in generate_response: {str(e)}")
+            raise e
 
     def get_default_max_tokens(self):
         """Get default maximum tokens for Grok model.

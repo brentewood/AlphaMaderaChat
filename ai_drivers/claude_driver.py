@@ -1,3 +1,5 @@
+"""Anthropic Claude AI driver implementation for text-based chat."""
+
 from anthropic import Anthropic
 from .base_driver import AIDriver
 import logging
@@ -5,7 +7,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 class ClaudeDriver(AIDriver):
-    """Anthropic Claude AI driver implementation for vision analysis."""
+    """Anthropic Claude AI driver implementation for text-based chat."""
 
     def initialize(self, config):
         """Initialize the driver with configuration.
@@ -15,7 +17,7 @@ class ClaudeDriver(AIDriver):
         """
         logger.info(f"\nClaude Driver initializing with config: {config}")
         self.client = Anthropic(api_key=config['api_key'])
-        self.model = config.get('model', 'claude-3-sonnet-20240229')
+        self.model = config.get('model', 'claude-3-5-sonnet-latest')
         self.max_tokens = config.get('max_tokens', 32768)
         self.temperature = config.get('temperature', 0.7)
         logger.info(
@@ -24,34 +26,6 @@ class ClaudeDriver(AIDriver):
             self.max_tokens,
             self.temperature,
         )
-
-    def format_vision_message(self, text: str, image_data: str) -> list:
-        """Format message for Claude's vision API.
-
-        Args:
-            text (str): The text prompt or message
-            image_data (str): Base64 encoded image data
-
-        Returns:
-            list: Formatted messages for Claude's vision API
-        """
-        return [{
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": text
-                },
-                {
-                    "type": "image",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "image/jpeg",
-                        "data": image_data
-                    }
-                }
-            ]
-        }]
 
     def generate_response(self, messages):
         """Generate a response from Claude.
