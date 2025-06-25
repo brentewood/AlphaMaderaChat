@@ -18,7 +18,7 @@ ANTHROPIC_API_KEY=your_api_key_here
 
 1. Run the application:
 ```bash
-python chat_app.py
+python app.py
 ```
 
 2. Start chatting with the AI. Your conversation will be stored in `chat.json`.
