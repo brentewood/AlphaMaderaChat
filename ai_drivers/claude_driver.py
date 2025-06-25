@@ -1,5 +1,8 @@
 from anthropic import Anthropic
 from .base_driver import AIDriver
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ClaudeDriver(AIDriver):
     """Anthropic Claude AI driver implementation for vision analysis."""
@@ -10,12 +13,17 @@ class ClaudeDriver(AIDriver):
         Args:
             config (dict): Configuration with api_key, model, max_tokens, and temperature
         """
-        print(f"\nClaude Driver initializing with config: {config}")
+        logger.info(f"\nClaude Driver initializing with config: {config}")
         self.client = Anthropic(api_key=config['api_key'])
         self.model = config.get('model', 'claude-3-sonnet-20240229')
         self.max_tokens = config.get('max_tokens', 32768)
         self.temperature = config.get('temperature', 0.7)
-        print(f"Claude Driver initialized with model: {self.model}, max_tokens: {self.max_tokens}, temperature: {self.temperature}")
+        logger.info(
+            "Claude Driver initialized with model: %s, max_tokens: %s, temperature: %s",
+            self.model,
+            self.max_tokens,
+            self.temperature,
+        )
 
     def format_vision_message(self, text: str, image_data: str) -> list:
         """Format message for Claude's vision API.
@@ -58,7 +66,7 @@ class ClaudeDriver(AIDriver):
             ValueError: If no messages provided
             Exception: If API call fails
         """
-        print(f"\nGenerating response using model: {self.model}")
+        logger.info(f"\nGenerating response using model: {self.model}")
         try:
             if not messages:
                 raise ValueError("No valid messages to send")
@@ -90,7 +98,7 @@ class ClaudeDriver(AIDriver):
             return full_response
 
         except Exception as e:
-            print(f"\nError in generate_response: {str(e)}")
+            logger.error(f"\nError in generate_response: {str(e)}")
             raise e
 
     def get_default_max_tokens(self):

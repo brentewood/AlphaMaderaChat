@@ -2,6 +2,9 @@
 
 from openai import OpenAI
 from .base_driver import AIDriver
+import logging
+
+logger = logging.getLogger(__name__)
 
 class GrokDriver(AIDriver):
     """xAI Grok driver implementation for image analysis."""
@@ -21,7 +24,7 @@ class GrokDriver(AIDriver):
         Args:
             config (dict): Configuration with api_key, model, max_tokens, and temperature
         """
-        print(f"\nGrok Driver initializing with config: {config}")
+        logger.info(f"\nGrok Driver initializing with config: {config}")
         self.client = OpenAI(
             api_key=config['api_key'],
             base_url="https://api.x.ai/v1"
@@ -30,7 +33,13 @@ class GrokDriver(AIDriver):
         self.vision_model = config.get('vision_model', 'grok-2-vision-1212')
         self.max_tokens = config.get('max_tokens', 4096)
         self.temperature = config.get('temperature', 0.7)
-        print(f"Grok Driver initialized with vision model: {self.vision_model}, text model: {self.text_model}, max_tokens: {self.max_tokens}, temperature: {self.temperature}")
+        logger.info(
+            "Grok Driver initialized with vision model: %s, text model: %s, max_tokens: %s, temperature: %s",
+            self.vision_model,
+            self.text_model,
+            self.max_tokens,
+            self.temperature,
+        )
 
     def format_vision_message(self, text: str, image_data: str) -> list:
         """Format message for Grok's vision API.
@@ -92,7 +101,7 @@ class GrokDriver(AIDriver):
                 for msg in formatted_messages
             )
             model = self.vision_model if has_image else self.text_model
-            print(f"Using Grok model: {model}")
+            logger.info(f"Using Grok model: {model}")
 
             response = self.client.chat.completions.create(
                 model=model,
@@ -113,7 +122,7 @@ class GrokDriver(AIDriver):
 
         except Exception as e:
             error_msg = f"Error in generate_response: {str(e)}"
-            print(error_msg)
+            logger.error(error_msg)
             raise RuntimeError(error_msg) from e
 
     def get_default_max_tokens(self):

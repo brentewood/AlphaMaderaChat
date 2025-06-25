@@ -4,12 +4,15 @@ import json
 import os
 import datetime
 import yaml
+import logging
 from dotenv import load_dotenv
 from ai_drivers.claude_driver import ClaudeDriver
 from ai_drivers.openai_driver import OpenAIDriver
 from ai_drivers.grok_driver import GrokDriver
 
-print("Starting chat_app.py...")
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
+logger.info("Starting chat_app.py...")
 
 class AIChat:
     """Chat interface for interacting with AI models.
@@ -33,27 +36,27 @@ class AIChat:
         """Load configuration from config.yaml and replace environment variables."""
         load_dotenv('.env.local')  # Load .env.local first
         load_dotenv('.env')  # Fall back to .env
-        print("\nLoading configuration...")
+        logger.info("\nLoading configuration...")
         with open('config.yaml', 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
-            print("Loaded config:", self.config)
+            logger.info("Loaded config: %s", self.config)
 
         # Replace environment variables in config
         provider_config = self.config[self.config['ai_provider']]
-        print("Provider config before env vars:", provider_config)
+        logger.info("Provider config before env vars: %s", provider_config)
         provider_config['api_key'] = os.getenv(provider_config['api_key'].replace('${', '').replace('}', ''))
-        print("Provider config after env vars:", provider_config)
+        logger.info("Provider config after env vars: %s", provider_config)
 
     def initialize_driver(self):
         """Initialize the AI driver based on the configured provider."""
         provider = self.config['ai_provider']
-        print("\nInitializing", provider, "driver...")
+        logger.info("\nInitializing %s driver...", provider)
         if provider not in self.DRIVER_MAPPING:
             raise ValueError(f"Unsupported AI provider: {provider}")
 
         driver_class = self.DRIVER_MAPPING[provider]
         self.driver = driver_class()
-        print("Initializing driver with config:", self.config[provider])
+        logger.info("Initializing driver with config: %s", self.config[provider])
         self.driver.initialize(self.config[provider])
 
     def load_initial_prompt(self):
@@ -117,18 +120,18 @@ class AIChat:
                     {"role": "assistant", "content": assistant_response}
                 ])
 
-                print("\nInitial prompt from assistant.txt processed.")
-                print("-" * 50)
+                logger.info("\nInitial prompt from assistant.txt processed.")
+                logger.info("-" * 50)
             except json.JSONDecodeError as e:
-                print("\nJSON parsing error:", str(e))
+                logger.error("\nJSON parsing error: %s", str(e))
             except yaml.YAMLError as e:
-                print("\nYAML parsing error:", str(e))
+                logger.error("\nYAML parsing error: %s", str(e))
             except (IOError, OSError) as e:
-                print("\nI/O error:", str(e))
+                logger.error("\nI/O error: %s", str(e))
             except KeyError as e:
-                print("\nConfiguration key error:", str(e))
+                logger.error("\nConfiguration key error: %s", str(e))
             except ValueError as e:
-                print("\nValue error:", str(e))
+                logger.error("\nValue error: %s", str(e))
 
     def run(self):
         """Main loop for the chat application."""
@@ -141,6 +144,7 @@ class AIChat:
 
         print("Chat started using", self.config['ai_provider'].upper(), "Type 'QUIT' to exit.")
         print("-" * 50)
+        logging.getLogger().setLevel(logging.ERROR)
 
         while True:
             user_input = input("\nYou: ").strip()
@@ -173,15 +177,15 @@ class AIChat:
                 self.messages.append({"role": "assistant", "content": assistant_response})
 
             except json.JSONDecodeError as e:
-                print("\nJSON parsing error:", str(e))
+                logger.error("\nJSON parsing error: %s", str(e))
             except yaml.YAMLError as e:
-                print("\nYAML parsing error:", str(e))
+                logger.error("\nYAML parsing error: %s", str(e))
             except (IOError, OSError) as e:
-                print("\nI/O error:", str(e))
+                logger.error("\nI/O error: %s", str(e))
             except KeyError as e:
-                print("\nConfiguration key error:", str(e))
+                logger.error("\nConfiguration key error: %s", str(e))
             except ValueError as e:
-                print("\nValue error:", str(e))
+                logger.error("\nValue error: %s", str(e))
 
 def main():
     """Main function to run the chat application."""
