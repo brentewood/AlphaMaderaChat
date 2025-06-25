@@ -1,6 +1,7 @@
 # AI API clients
 anthropic==0.44.0
 openai==1.60.0
+requests==2.32.4
 
 # Configuration and environment
 python-dotenv==1.0.0

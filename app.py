@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from ai_drivers.claude_driver import ClaudeDriver
 from ai_drivers.openai_driver import OpenAIDriver
 from ai_drivers.grok_driver import GrokDriver
+from ai_drivers.gemini_driver import GeminiDriver
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
@@ -22,7 +23,8 @@ class AIChat:
     DRIVER_MAPPING = {
         'claude': ClaudeDriver,
         'openai': OpenAIDriver,
-        'grok': GrokDriver
+        'grok': GrokDriver,
+        'gemini': GeminiDriver
     }
 
     def __init__(self):
@@ -165,7 +167,9 @@ class AIChat:
             self.messages.append({"role": "user", "content": user_input})
 
             try:
-                print("\nAssistant:")
+                # Note: Some drivers (like Gemini) handle their own output formatting
+                if self.config['ai_provider'] != 'gemini':
+                    print("\nAssistant:")
                 assistant_response = self.driver.generate_response(self.messages)
 
                 # Add assistant message to history

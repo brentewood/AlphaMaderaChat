@@ -1,4 +1,4 @@
-ai_provider: openai
+ai_provider: gemini
 
 openai:
   api_key: ${OPENAI_API_KEY}
@@ -16,4 +16,10 @@ grok:
   api_key: ${GROK_API_KEY}
   model: grok-2-latest
   max_tokens: 4096
+  temperature: 0.2
+
+gemini:
+  api_key: ${GEMINI_API_KEY}
+  model: gemini-2.5-pro
+  max_tokens: 8192
   temperature: 0.2

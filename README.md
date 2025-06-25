@@ -1,6 +1,6 @@
 # AI Chat Application
 
-A command-line chat application that supports multiple AI providers (Claude, OpenAI, Grok) with persistent chat history and configurable settings. This application is provided courtesy of AlphaMadera, LLC (https://alphamadera.com), and is not intended for production use.
+A command-line chat application that supports multiple AI providers (Claude, OpenAI, Grok, Gemini) with persistent chat history and configurable settings. This application is provided courtesy of AlphaMadera, LLC (https://alphamadera.com), and is not intended for production use.
 
 ## Purpose
 
@@ -13,7 +13,7 @@ This application serves as an educational tool and reference implementation for 
 
 Key learning opportunities:
 
-- See how to structure API calls to different AI providers (Claude, GPT-4, Grok)
+- See how to structure API calls to different AI providers (Claude, GPT-4, Grok, Gemini)
 - Learn about handling streaming responses for real-time chat
 - Understand configuration management and API key security
 - Explore chat history persistence and state management
@@ -50,10 +50,17 @@ pip install -r requirements.txt
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
 OPENAI_API_KEY=your_openai_api_key_here
 GROK_API_KEY=your_grok_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
+   **To get your API keys:**
+   - **Anthropic (Claude):** Visit https://console.anthropic.com/ to get your API key
+   - **OpenAI (GPT):** Visit https://platform.openai.com/api-keys to get your API key
+   - **xAI (Grok):** Visit https://console.x.ai/ to get your API key
+   - **Google (Gemini):** Visit https://ai.google.dev/ to get your API key
+
 5. **Configure your preferred AI provider in `config.yaml`:**
-   - Set `ai_provider` to `claude`, `openai`, or `grok`
+   - Set `ai_provider` to `claude`, `openai`, `grok`, or `gemini`
    - Adjust model settings, temperature, and max_tokens as needed
 
 ## Usage
@@ -76,10 +83,10 @@ python app.py
 
 ## Features
 
-- **Multiple AI Providers:** Support for Claude, OpenAI GPT, and xAI Grok
+- **Multiple AI Providers:** Support for Claude, OpenAI GPT, xAI Grok, and Google Gemini
 - **Configurable Settings:** Easy switching between providers and model settings
 - **Persistent Chat History:** Stored in `chat.json` with timestamps
-- **Streaming Responses:** Real-time response generation
+- **Streaming Responses:** Real-time response generation for all providers
 - **Environment Variables:** Secure API key management
 - **Empty Message Prevention:** Input validation to ensure meaningful conversations
 
@@ -92,9 +99,10 @@ Edit `config.yaml` to customize:
 
 ## Supported Models
 
-- **Claude:** claude-3-5-sonnet-latest or later
-- **OpenAI:** gpt-4o or later
-- **Grok:** grok-2-latest or later
+- **Claude:** claude-3-5-sonnet-latest or later (streaming via SDK)
+- **OpenAI:** gpt-4o or later (streaming via SDK)
+- **Grok:** grok-2-latest or later (streaming via SDK)
+- **Gemini:** gemini-2.5-pro or later (streaming via REST API)
 
 ## Notes
 
