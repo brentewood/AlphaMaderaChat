@@ -1,6 +1,6 @@
 # AI Chat Application
 
-A command-line chat application that supports multiple AI providers (Claude, OpenAI, Grok) with persistent chat history and configurable settings.
+A command-line chat application that supports multiple AI providers (Claude, OpenAI, Grok) with persistent chat history and configurable settings. This application is provided courtesy of AlphaMadera, LLC (https://alphamadera.com), and is not intended for production use.
 
 ## Purpose
 
