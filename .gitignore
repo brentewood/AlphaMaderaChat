@@ -2,8 +2,4 @@
 /venv
 *.pyc
 .env.local
-recos_better_prompt.md
-chat.json
-chat.json
-chat_jan29.json
 chat.json
